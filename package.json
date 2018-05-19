@@ -1,0 +1,23 @@
+{
+  "name": "hobofo3",
+  "version": "1.0.0",
+  "description": "hobofo api",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "cd client && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "author": "Bjarke Hou",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "mysql-model": "0.0.3"
+  }
+}

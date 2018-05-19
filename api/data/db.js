@@ -1,0 +1,27 @@
+var mysql = require('mysql-model');
+
+var state = {
+	pool: null,
+	mode: null
+};
+
+exports.connect = function(callback) {
+	state.pool = mysql.createConnection({
+		host: 'localhost',
+		user: 'hobofo2',
+		password: 'test',
+		// password: 'eu4D8ay2fJXEim9u',
+		database: 'hobofo2'
+	});
+
+	
+	callback();	
+}
+
+exports.get = function(tablename) {
+	var obj = state.pool.extend({
+		tableName: tablename
+	});
+	return obj;
+}
+
