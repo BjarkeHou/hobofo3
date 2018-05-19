@@ -12,10 +12,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var matchRoutes = require('./api/routes/matchRoutes'),
-	playerRoutes = require('./api/routes/playerRoutes');
+	playerRoutes = require('./api/routes/playerRoutes'),
+	teamRoutes = require('./api/routes/teamRoutes');
 
 matchRoutes(app);
 playerRoutes(app);
+teamRoutes(app);
 
 app.listen(port);
 
