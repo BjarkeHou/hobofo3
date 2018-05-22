@@ -9,7 +9,7 @@
 
 ## Fix mysql-model
 - Go to /node_modules/mysql-model/node_modules and delete the mysql folder (deprecated version).
-- Change .createConnection to .createPool in mysql-model.js line7
+- Change `var connection = mysql.createConnection(options);` to `var connection = mysql.createPool(options);` in mysql-model.js line7
 
 # Run
 
