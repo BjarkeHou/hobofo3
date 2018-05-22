@@ -41,12 +41,15 @@ exports.getById  = function(req, res) {
 
 exports.updateById = function(req, res) {
 	var match = new matchesModel();
+	console.log(JSON.stringify(req.params));
 	match.read(req.params.matchId, function(err, row, fields) {
+		console.log(match);
 		if(err) {
 			res.send(err);
 		}
 
 		for(var key in req.body) {
+			
 			match.set(key, req.body[key]);
 		}
 

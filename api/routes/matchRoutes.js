@@ -7,7 +7,6 @@ module.exports = function(app) {
 	    .get(matchCtrl.getAll)
 	    .post(matchCtrl.create);
 
-
 	app.route('/matches/:matchId')
 	    .get(matchCtrl.getById)
 	    .put(matchCtrl.updateById)
