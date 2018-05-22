@@ -41,15 +41,13 @@ exports.getById  = function(req, res) {
 
 exports.updateById = function(req, res) {
 	var match = new matchesModel();
-	console.log(JSON.stringify(req.params));
 	match.read(req.params.matchId, function(err, row, fields) {
-		console.log(match);
 		if(err) {
 			res.send(err);
 		}
 
 		for(var key in req.body) {
-			
+
 			match.set(key, req.body[key]);
 		}
 
@@ -59,7 +57,9 @@ exports.updateById = function(req, res) {
 			}
 
 			if(match.get('winner_id') != null) {
+				match.set('ended', new Date().toISOString().slice(0, 19).replace('T', ' '));
 				match.query('CALL calc_elo('+req.params.matchId+')');	
+
 			}
 			
 			res.json(match);
